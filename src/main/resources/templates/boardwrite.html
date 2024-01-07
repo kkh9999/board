@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>게시물 작성폼</title>
+</head>
+
+<style>
+    .title {
+        border: none;
+        padding: 10px;
+        font-size: 1.5em;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .layout {
+        width: 500px;
+        margin: 0 auto;
+        margin-top: 20px;
+    }
+
+    .layout input, textarea {
+        width: 100%;
+        box-sizing: border-box;
+        margin-top: 10px;
+    }
+
+    .layout textarea {
+        min-height: 200px;
+    }
+
+    .layout button {
+        margin-top: 10px;
+        padding: 8px;
+        background-color: #4caf50;
+        color: white;
+        cursor: pointer;
+        border: none;
+        border-radius: 4px;
+        font-size: 1em;
+        width: 30%;
+    }
+
+    .layout .layout-group {
+        display: flex;
+        gap: 10px;
+    }
+</style>
+
+<body>
+    <div class="title">
+        게시판 글쓰기
+    </div>
+    <div class="layout">
+        <form action="/board/writepro" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
+            <input id="title" name="title" type="text" placeholder="제목">
+            <textarea name="content" placeholder="내용"></textarea>
+            <div class="layout-group">
+                <input type="file" name="file" >
+                <button type="submit">등록</button>
+            </div>
+        </form>
+    </div>
+</body>
+
+<script>
+    function validateForm() {
+        var titleValue = document.getElementById("title").value;
+
+        if (titleValue.trim() === "") {
+            alert("제목을 입력해주세요.");
+            return false;
+        }
+
+        return true;
+    }
+</script>
+</html>
