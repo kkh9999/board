@@ -6,32 +6,61 @@
 </head>
 
 <style>
+    .title {
+        border: none;
+        padding: 10px;
+        font-size: 1.5em;
+        font-weight: bold;
+        text-align: center;
+    }
+
     .layout {
         width : 500px;
         margin : 0 auto;
-        margin-top: 40px;
+        margin-top: 20px;
     }
 
     .layout input, textarea {
         width : 100%;
         box-sizing: border-box;
+        margin-top: 10px;
     }
 
     .layout textarea {
-        width: 100%;
+        min-height: 200px;
+    }
+
+    .layout button {
         margin-top: 10px;
-        min-height: 300px;
+        padding: 8px;
+        background-color: #4caf50;
+        color: white;
+        cursor: pointer;
+        border: none;
+        border-radius: 4px;
+        font-size: 1em;
+        width: 30%;
+    }
+
+    .layout .layout-group {
+        display: flex;
+        gap: 10px;
     }
 </style>
 
 <body>
-<div class="layout">
-    <form th:action="@{/board/update/{id}(id=${board.id})}" method="post" enctype="multipart/form-data">
-        <input name="title" type="text" th:value="${board.title}">
-        <textarea name="content" th:text="${board.content}"></textarea>
-        <input type="file" name="file">
-        <button type="submit">수정</button>
-    </form>
-</div>
+    <div class="title">
+        게시글 수정
+    </div>
+    <div class="layout">
+        <form th:action="@{/board/update/{id}(id=${board.id})}" method="post" enctype="multipart/form-data">
+            <input name="title" type="text" th:value="${board.title}">
+            <textarea name="content" th:text="${board.content}"></textarea>
+            <div class="layout-group">
+                <input type="file" name="file">
+                <button type="submit">수정</button>
+            </div>
+        </form>
+    </div>
 </body>
 </html>

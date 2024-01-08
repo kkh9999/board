@@ -6,14 +6,6 @@
 </head>
 
 <style>
-    .title {
-        border: none;
-        padding: 10px;
-        font-size: 1.5em;
-        font-weight: bold;
-        text-align: center;
-    }
-
     .layout {
         width: 500px;
         margin: 0 auto;
@@ -22,10 +14,8 @@
 </style>
 
 <body>
-    <div class="title">
-        게시판 내용
-    </div>
     <div class="layout">
+        <h1>게시판 내용</h1>
         <h4 th:text="${board.title}">제목입니다.</h4>
         <p th:text="${board.content}">내용이 들어갈 부분입니다.</p>
         <a th:href="@{/board/modify/{id}(id = ${board.id})}">수정</a>

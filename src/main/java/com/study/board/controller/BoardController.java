@@ -79,7 +79,6 @@ public class BoardController {
         if (file != null) {
             boardService.write(boardTemp, file);
         } else {
-            // 파일이 업로드되지 않은 경우에 대한 처리 (예: 로깅 등)
             System.out.println("No file uploaded.");
         }
 
